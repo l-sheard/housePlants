@@ -17,6 +17,9 @@ module.exports = {
         brown: "#563400",
         darkBrown: "#1A1101",
   },
+  fontFamily: {
+    winkle: ['"winkle"', 'cursive'],
+  },
   plugins: [],
 }
 }

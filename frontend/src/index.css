@@ -1,3 +1,9 @@
+@font-face {
+  font-family: winkle;
+  src: url("./Winkle-Regular.ttf");
+  font-weight: 400;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
