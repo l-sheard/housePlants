@@ -4,7 +4,7 @@ import { PlantCard } from '../components/plantCard';
 
 export function Homepage() {
   return (
-    <div>
+    <div className="App bg-darkGreen">
     <Navbar />
       <header className="App-header">
         <h1 className='text-brown font-bold p-3'>Your collection:</h1>

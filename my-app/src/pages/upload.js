@@ -11,7 +11,7 @@ export function UploadPage() {
     };
 
     return (
-        <div>
+        <div className="App bg-darkGreen">
             <Navbar />
             <header className="App-header">
             <h1 className='text-brown font-bold p-3'>Upload an Image:</h1>
