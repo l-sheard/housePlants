@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 
 function App() {
-    const [inputValue, setInputValue] = useState('');
+    const [selectedFile, setSelectedFile] = useState(null);
     const [responseMessage, setResponseMessage] = useState('');
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await fetch('http://localhost:5000/api/send-string', {
+            const formData = new FormData();
+            formData.append('image', selectedFile);
+
+            const response = await fetch('http://localhost:5000/api/upload-image', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ data: inputValue })
+                body: formData
             });
             const responseData = await response.json();
             setResponseMessage(responseData.message);
@@ -21,11 +21,15 @@ function App() {
         }
     };
 
+    const handleFileChange = (event) => {
+        setSelectedFile(event.target.files[0]);
+    };
+
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <input type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
-                <button type="submit">Send</button>
+                <input type="file" onChange={handleFileChange} />
+                <button type="submit">Upload</button>
             </form>
             {responseMessage && <p>Response from backend: {responseMessage}</p>}
         </div>
