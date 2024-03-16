@@ -21,12 +21,14 @@ export function LoginForm() {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">Username:</label>
+    <div className='border-solid border-2 border-brown font-sans rounded-md p-3 bg-lightGreen'>
+    <h2 className='text-brown font-bold'>Login</h2>
+    <form onSubmit={handleSubmit}>
+      <div className='flex flex-col'>
+        <div className='flex justify-between items-center p-3'>
+          <label className='text-brown mr-4' htmlFor="username">Username:</label>
           <input
+            className='border-2 p-2 border-brown rounded-md text-brown h-10'
             type="text"
             id="username"
             value={username}
@@ -34,9 +36,10 @@ export function LoginForm() {
             required
           />
         </div>
-        <div>
-          <label htmlFor="password">Password:</label>
+        <div className='flex justify-between items-center p-3'>
+          <label className='text-brown mr-4' htmlFor="password">Password:</label>
           <input
+            className='border-2 p-2 border-brown rounded-md text-brown h-10'
             type="password"
             id="password"
             value={password}
@@ -44,8 +47,11 @@ export function LoginForm() {
             required
           />
         </div>
-        <button type="submit">Login</button>
-      </form>
-    </div>
-  );
+        <div className="flex justify-end">
+          <button className="bg-brown p-2 rounded-md" type="submit">Login</button>
+        </div>
+      </div>
+    </form>
+  </div>
+);
 };

@@ -1,15 +1,15 @@
 import "./App.css";
 import React from "react";
 import { LoginForm } from "./components/login";
+import { Navbar } from "./components/nav";
+
 
 function App() {
   return (
-    <div className="App">
+    <div className="App bg-darkGreen">
+      <Navbar />
       <header className="App-header">
         <LoginForm />
-        <h1 className="text-3xl font-bold underline">
-          Hello world!
-        </h1>
       </header>
     </div>
   );
