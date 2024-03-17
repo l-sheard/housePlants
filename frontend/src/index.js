@@ -1,23 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { PlantCare } from './pages/plantCare';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { PlantCare } from "./pages/plantCare";
+import { Homepage } from "./pages/homepage";
+import { UploadPage } from "./pages/upload";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />
+    element: <Homepage />,
   },
   {
     path: "/care/:plant",
-    element: <PlantCare />
-  }
-])
+    element: <PlantCare />,
+  },
+  {
+    path: "/upload",
+    element: <UploadPage />,
+  },
+]);
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <RouterProvider router={router} />

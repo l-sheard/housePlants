@@ -1,39 +1,57 @@
-import React from 'react';
-import { Navbar } from '../components/nav';
-import { useState } from 'react';
+import React, { useCallback } from "react";
+import { Navbar } from "../components/nav";
+import { useState } from "react";
 
 export function UploadPage() {
-    const [image, setImage] = useState(null);
+  const [image, setImage] = useState(null);
 
-    const handleImageChange = (e) => {
-      const selectedImage = e.target.files[0];
-      setImage(selectedImage);
-    };
+  const handleImageChange = (e) => {
+    const selectedImage = e.target.files[0];
+    setImage(selectedImage);
+  };
 
-    return (
-        <div className="App bg-darkGreen">
-            <Navbar />
-            <header className="App-header">
-            <h1 className='text-brown font-bold p-3'>Upload an Image:</h1>
-            <div className='flex justify-center h-screen'>
-                <div className=''>
-                    <label className="bg-darkGreen hover:bg-lightGreen text-white font-bold py-2 px-2 rounded-lg cursor-pointer">
-                        Browse
-                        <input
-                            type="file"
-                            onChange={handleImageChange}
-                            className="hidden"
-                        />
-                    </label>
-                    {image && (
-                        <div>
-                            <h2 className='text-brown'>Preview:</h2>
-                            <img src={URL.createObjectURL(image)} alt="Uploaded" style={{ maxWidth: '400px', height: 'auto' }} />
-                        </div>
-                    )}
-                </div>
+  const onUploadClick = useCallback(async () => {
+
+  }, [image]);
+
+  return (
+    <div className="App bg-cream">
+      <Navbar />
+      <header className="App-header">
+        <h1 className="text-brown font-bold m-4 text-2xl text-center">
+          Upload an Image
+        </h1>
+        <div className="flex flex-col items-center h-screen">
+          <label className="bg-darkGreen hover:bg-lightGreen text-white font-bold py-2 px-2 rounded-lg cursor-pointer">
+            Browse
+            <input
+              type="file"
+              onChange={handleImageChange}
+              className="hidden"
+            />
+          </label>
+
+          {image && (
+            <div className="mt-4 flex flex-col items-center">
+              <h2 className="text-brown text-center font-bold pb-2">
+                Preview:
+              </h2>
+              <img
+                src={URL.createObjectURL(image)}
+                alt="Uploaded"
+                style={{ maxWidth: "400px", height: "auto" }}
+              />
+
+              <button
+                onClick={onUploadClick}
+                className="bg-darkGreen hover:bg-lightGreen text-white font-bold py-2 px-2 rounded-lg cursor-pointer mt-4"
+              >
+                Upload!
+              </button>
             </div>
-            </header>
+          )}
         </div>
-    );
+      </header>
+    </div>
+  );
 }

@@ -29,11 +29,12 @@ training_classes, training_data = convert_data_to_array("backend\\train")
 import sklearn as sk
 from sklearn.svm import SVC
 import pickle
+import gzip
 
 svm_classifier = SVC(kernel='rbf', C=100, gamma='scale', decision_function_shape='ovr')
 svm_classifier.fit(training_data, training_classes)
 
 # Assuming 'classifier' is your trained classifier
 # Save SVM classifier to file using pickle
-with open('svm_classifier.pkl', 'wb') as f:
+with gzip.open('svm_classifier.pkl.gz', 'wb') as f:
     pickle.dump(svm_classifier, f)

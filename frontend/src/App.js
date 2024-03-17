@@ -15,7 +15,7 @@ function App() {
                 body: formData
             });
             const responseData = await response.json();
-            setResponseMessage(responseData.message);
+            setResponseMessage(mapResponseToMessage(parseInt(responseData.prediction)));
         } catch (error) {
             console.error('Error:', error);
         }
@@ -23,6 +23,24 @@ function App() {
 
     const handleFileChange = (event) => {
         setSelectedFile(event.target.files[0]);
+    };
+
+    // Function to map response number to message
+    const mapResponseToMessage = (responseNumber) => {
+        switch(responseNumber) {
+            case 0:
+                return 'Message for response 0';
+            case 1:
+                return 'Message for response 1';
+            case 2:
+                return 'Message for response 2';
+            case 3:
+                return 'Message for response 3';
+            case 4:
+                return 'Message for response 4';
+            default:
+                return 'Unknown response';
+        }
     };
 
     return (
