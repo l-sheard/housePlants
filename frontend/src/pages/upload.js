@@ -1,6 +1,10 @@
 import React, { useCallback } from "react";
 import { Navbar } from "../components/nav";
 import { useState } from "react";
+import {
+  classifyImage,
+  humanClassificationResult,
+} from "../data/classification";
 
 export function UploadPage() {
   const [image, setImage] = useState(null);
@@ -10,8 +14,11 @@ export function UploadPage() {
     setImage(selectedImage);
   };
 
-  const onUploadClick = useCallback(async () => {
+  const [classificationResult, setClassificationResult] = useState(null);
 
+  const onUploadClick = useCallback(async () => {
+    const result = await classifyImage(image);
+    setClassificationResult(result);
   }, [image]);
 
   return (
@@ -21,6 +28,10 @@ export function UploadPage() {
         <h1 className="text-brown font-bold m-4 text-2xl text-center">
           Upload an Image
         </h1>
+        {classificationResult !== null && (
+          <p>omg it is a {humanClassificationResult(classificationResult)}!!</p>
+        )}
+
         <div className="flex flex-col items-center h-screen">
           <label className="bg-darkGreen hover:bg-lightGreen text-white font-bold py-2 px-2 rounded-lg cursor-pointer">
             Browse
