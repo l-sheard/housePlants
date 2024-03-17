@@ -10,9 +10,9 @@ export function Navbar() {
             <span className="font-semibold text-xl tracking-tight text-cream">Botanic Being</span>
           </div>
           <div className="flex items-center">
-            <a className="text-cream hover:text-gray-300 mx-3 font-bold" href="/">Home</a>
-            <a className="text-cream hover:text-gray-300 mx-3 font-bold" href="/about">Upload</a>
-            <a className="text-cream hover:text-gray-300 mx-3 font-bold" href="/services">Signout</a>
+            <Link className="text-cream hover:text-gray-300 mx-3 font-bold" to="/">Home</Link>
+            <Link className="text-cream hover:text-gray-300 mx-3 font-bold" to="/about">Upload</Link>
+            <Link className="text-cream hover:text-gray-300 mx-3 font-bold" to="/services">Signout</Link>
           </div>
         </div>
       </div>
