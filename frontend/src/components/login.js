@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import AloeMateLogo from "../images/AloeMateLogo.png";
+
+
 
 export function LoginForm() {
   const [username, setUsername] = useState('');
@@ -21,12 +25,12 @@ export function LoginForm() {
   };
 
   return (
-    <div className='border-solid border-2 border-brown font-sans rounded-md p-3 bg-lightGreen'>
-    <h2 className='text-brown font-bold'>Login</h2>
+    <div className='border-solid border-2 border-brown font-sans rounded-md p-3 bg-lightGreen text-lg shadow-lg'>
+    <h2 className='text-brown font-bold p-3 font-winkle text-2xl text-center'>Aloe Mate!</h2> {/* Added text-center class to center the title */}
     <form onSubmit={handleSubmit}>
       <div className='flex flex-col'>
         <div className='flex justify-between items-center p-3'>
-          <label className='text-brown mr-4' htmlFor="username">Username:</label>
+          <label className='text-brown mr-4 font-bold' htmlFor="username">Username:</label>
           <input
             className='border-2 p-2 border-brown rounded-md text-brown h-10'
             type="text"
@@ -37,7 +41,7 @@ export function LoginForm() {
           />
         </div>
         <div className='flex justify-between items-center p-3'>
-          <label className='text-brown mr-4' htmlFor="password">Password:</label>
+          <label className='text-brown font-bold mr-4' htmlFor="password">Password:</label>
           <input
             className='border-2 p-2 border-brown rounded-md text-brown h-10'
             type="password"
@@ -48,7 +52,7 @@ export function LoginForm() {
           />
         </div>
         <div className="flex justify-end">
-          <button className="bg-brown p-2 rounded-md" type="submit">Login</button>
+          <Link className="bg-brown p-2 rounded-md text-cream" to="/">Submit</Link>
         </div>
       </div>
     </form>

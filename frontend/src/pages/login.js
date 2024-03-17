@@ -1,18 +1,23 @@
+
+
 import React from 'react';
 import { BasicNavbar } from '../components/basicNav';
 import { LoginForm } from '../components/login';
-import BBtitle from "../images/BBtitle.png";
-
+import AloeMateLogo from "../images/AloeMateLogo.png";
 
 export function LoginPage() {
-
     return (
-        <div className="App bg-darkGreen">
+        <div>
             <BasicNavbar />
-            <header className="App-header">
-            <img alt="Botanic Being" src={BBtitle} className='w-80'></img>
+        <div className="App bg-cream flex flex-col justify-center items-center h-screen">
+        <header className="App-header flex flex-row justify-center items-center">
+            <img alt="Aloe Mate" src={AloeMateLogo} className="w-80 mb-4 mr-4" />
+            <div className="p-4">
                 <LoginForm />
-            </header>
+            </div>
+        </header>
+    </div>
         </div>
-    );
+
+);
 }

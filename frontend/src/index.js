@@ -6,6 +6,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { PlantCare } from "./pages/plantCare";
 import { Homepage } from "./pages/homepage";
 import { UploadPage } from "./pages/upload";
+import { LoginPage } from "./pages/login";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: "/upload",
     element: <UploadPage />,
+  },
+  {
+    path: "/signout",
+    element: <LoginPage />,
   },
 ]);
 
