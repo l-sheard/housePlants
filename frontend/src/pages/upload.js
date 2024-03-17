@@ -51,6 +51,7 @@ export function UploadPage() {
                 src={URL.createObjectURL(image)}
                 alt="Uploaded"
                 style={{ maxWidth: "400px", height: "auto" }}
+                accept="image/*;capture=camera"
               />
 
               <button

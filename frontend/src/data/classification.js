@@ -12,7 +12,7 @@ export const humanClassificationResult = (classID) => {
 export const classifyImage = async (file) => {
     const formData = new FormData();
     formData.append("image", file);
-    const response = await fetch("http://localhost:5000/api/upload-image", {
+    const response = await fetch("http://192.168.79.88:8080/api/upload-image", {
       method: "POST",
       body: formData,
     });
